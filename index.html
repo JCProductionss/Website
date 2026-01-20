@@ -1,11 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PlaceHolder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JCArchive</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #12121e;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background: linear-gradient(90deg, #222244, #2a2a4d);
+    padding: 1.5em;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  }
+  header h1 {
+    margin: 0;
+    color: #ffd700;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+  }
+  header p {
+    margin: 0.5em 0 0;
+    color: #aaa;
+    font-size: 1.1em;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    background: #1c1c33;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  .tab {
+    padding: 0.9em 2em;
+    cursor: pointer;
+    color: #eee;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .tab:hover {
+    background: #2c2c50;
+  }
+  .tab.active {
+    border-bottom: 3px solid #ffd700;
+    color: #ffd700;
+  }
+
+  .section {
+    max-width: 900px;
+    margin: 2em auto;
+    padding: 1.5em;
+    display: none;
+    background: #1c1c33;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+  }
+  .section.active { display: block; }
+
+  h2 {
+    border-bottom: 2px solid #444477;
+    padding-bottom: 0.5em;
+    margin-top: 0;
+    color: #ffd700;
+    font-size: 1.5em;
+  }
+
+  ol.file-list {
+    padding-left: 1.5em;
+    margin-top: 1em;
+  }
+  .file-list li {
+    margin: 0.8em 0;
+    font-size: 1.15em;
+    padding: 0.8em 1em;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1f1f3a, #1a1a2e);
+    transition: transform 0.2s, background 0.3s;
+  }
+  .file-list li:hover {
+    background: linear-gradient(135deg, #2a2a50, #1f1f3a);
+    transform: translateY(-2px);
+  }
+  .file-list a {
+    color: #6cf;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .file-list a:hover {
+    color: #00d0ff;
+    text-decoration: underline;
+  }
+
+  .note {
+    font-size: 0.95em;
+    color: #aaa;
+    margin-left: 1.5em;
+    margin-top: 0.3em;
+  }
+
+  .section ol {
+    margin-top: 1em;
+    padding-left: 1.5em;
+  }
+</style>
 </head>
 <body>
-  <h1>PlaceHolder</h1>
-  </a>
+
+<header>
+  <h1>JCArchive</h1>
+  <p>Your central place for JC's archive of APKs</p>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('chimp')">Chimp Depths</div>
+  <div class="tab" onclick="showTab('climb')">The Climb</div>
+</div>
+
+<div class="section active" id="chimp">
+  <h2>Silver Monke Downloads</h2>
+  <ol class="file-list">
+    <li><a href="SliverRunnersV13.apk" download>13th version of Silver Monke</a></li>
+    <li><a href="silverrunnersisreal.apk" download>13th? version of Silver Monke</a></li>
+    <li><a href="sm1.3.apk" download>1st version of Silver Monke Deluxe</a></li>
+    <li><a href="sm1.4.apk" download>2nd version of Silver Monke Deluxe</a></li>
+    <li><a href="sm1.5.apk" download>3rd version of Silver Monke Deluxe</a></li>
+    <li><a href="sm1.6.apk" download>4th version of Silver Monke Deluxe</a></li>
+    <li><a href="sm1.7.apk" download>5th version of Silver Monke Deluxe</a></li>
+  </ol>
+</div>
+
+<div class="section" id="climb">
+  <h2>The Climb Downloads</h2>
+  <ol class="file-list">
+    <li><a href="The Clamb2.apk" download>Best version of The Climb</a></li>
+  </ol>
+  <p class="note">Sadly this is the only working version, so this will never get updated.</p>
+</div>
+
+<div class="section">
+  <h2>Changelog</h2>
+  <ol>
+    <li>Chimp Depths — initial release APK</li>
+    <li>The Climb — best version APK</li>
+  </ol>
+</div>
+
+<script>
+function showTab(tabId) {
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+
 </body>
 </html>
-
